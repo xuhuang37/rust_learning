@@ -1,7 +1,17 @@
 // struct ImportantExcerpt<'a> {
 //     part: &'a str,
 // }
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
 
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+
+    &s[..]
+}
 fn main() {
     // let r;
     // let x = 5;
@@ -17,6 +27,7 @@ fn main() {
         result = longest(string1.as_str(), string2.as_str());
         println!("result: {}", result);
     }
+    println!("{}:string1", string1);
 
 
     // let result = longest(string1.as_str(), string2);
